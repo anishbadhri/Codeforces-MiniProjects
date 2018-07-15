@@ -13,7 +13,7 @@ sudo apt install python3-pip
 ```
 Install the requirements for the Python file with <br>
 ```
-pip install -r requirements.txt
+sudo -H pip3 install -r requirements.txt
 ```
 
 ## Running the File

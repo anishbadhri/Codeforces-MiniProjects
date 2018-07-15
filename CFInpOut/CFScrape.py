@@ -13,7 +13,8 @@ print(page_link)
 page_response = requests.get(page_link, timeout=10)
 page_content = BeautifulSoup(page_response.content, "html.parser")
 if len(page_content.find_all("div",attrs={"class":"input"})) > 0:
-	os.mkdir("./"+ques)
+	if(os.path.exists("./"+ques)==False):
+		os.mkdir("./"+ques)
 for i in range(0, len(page_content.find_all("div",attrs={"class":"input"}))):
 	paragraphs = page_content.find_all("div",attrs={"class":"input"})[i].pre.get_text(strip=True,separator="\n")
 	file = open(ques+"/"+ques+"Inp"+str(i+1)+'.in',"w+")

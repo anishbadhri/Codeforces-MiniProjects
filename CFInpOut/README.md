@@ -19,5 +19,5 @@ pip install -r requirements.txt
 ## Running the File
 Run the file with <br>
 ```
-python3 WebScrape.py
+python3 CFScrape.py [Question Code]
 ```

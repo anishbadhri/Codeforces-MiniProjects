@@ -8,7 +8,7 @@ if len(sys.argv) != 2:
 ques = sys.argv[1]
 num = ques[:len(ques)-1]
 dif = ques[len(ques)-1]
-page_link = 'http://codeforces.com/problemset/problem/'+num+'/'+dif
+page_link = 'http://codeforces.com/contest/'+num+'/problem/'+dif
 print(page_link)
 page_response = requests.get(page_link, timeout=10)
 page_content = BeautifulSoup(page_response.content, "html.parser")

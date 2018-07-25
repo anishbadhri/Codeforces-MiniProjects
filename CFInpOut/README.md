@@ -17,7 +17,11 @@ sudo -H pip3 install -r requirements.txt
 ```
 
 ## Running the File
-Run the file with <br>
+Run the scraper with <br>
 ```
 python3 CFScrape.py [Question Code]
+```
+Run the Test Comparison file with <br>
+```
+python3 CFTestCheck.py [Question Code] [Executable File]
 ```

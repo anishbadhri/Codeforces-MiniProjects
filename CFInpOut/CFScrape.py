@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import sys
-if len(sys.argv) != 2:
+if len(sys.argv) != 2 and len(sys.argv) != 3:
 	print("Please Refer README.md for Syntax")
 	exit(1)
 ques = sys.argv[1]

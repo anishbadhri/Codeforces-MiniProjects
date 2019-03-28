@@ -96,6 +96,4 @@ def getRandomProblem(user_handle):
 
 	cf_url = getProblemURL(rating_average,unsolved_problems)
 
-	print("Average Rating : " + str(rating_average))
-	print("Opening : " + cf_url)
 	return cf_url

@@ -6,8 +6,7 @@ def getProblemURL(user_rating,problem_list):
 	filtered_problem = [i for i in problem_list if i['rating']>=user_rating-50 and i['rating']<=user_rating+150]
 	random_problem = random.choice(filtered_problem)
 	#https://codeforces.com/problemset/problem/400/B
-	os.system("xdg-open https://codeforces.com/problemset/problem/"+str(random_problem['contestId'])+"/"+random_problem['index'])
-	return ""
+	return "https://codeforces.com/problemset/problem/"+str(random_problem['contestId'])+"/"+random_problem['index']
 def getRandomProblem(user_handle):
 	resp = requests.get("https://codeforces.com/api/user.status?handle="+ user_handle + "&from=1");
 	if resp.status_code < 200 or resp.status_code>299:

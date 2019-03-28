@@ -6,7 +6,7 @@ import functools
 
 
 def getProblemURL(user_rating,problem_list):
-	filtered_problem = [i for i in problem_list if i['rating']>=user_rating-50 and i['rating']<=user_rating+150]
+	filtered_problem = [i for i in problem_list if i['rating']>=user_rating-100 and i['rating']<=user_rating+200]
 	random_problem = random.choice(filtered_problem)
 	#https://codeforces.com/problemset/problem/400/B
 	return "https://codeforces.com/problemset/problem/"+str(random_problem['contestId'])+"/"+random_problem['index']
@@ -19,6 +19,8 @@ def calRatingAvg(solved_problems):
 		rating_average += solved_problems[it]['rating']
 		it = it + 1
 	rating_average/=it
+	if rating_average==0:
+		rating_average = 1000
 	return rating_average
 
 

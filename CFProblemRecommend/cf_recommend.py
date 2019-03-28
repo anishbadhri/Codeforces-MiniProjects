@@ -64,7 +64,7 @@ def getRandomProblem(user_handle):
 
 	resp = requests.get("https://codeforces.com/api/user.status?handle="+ user_handle + "&from=1");
 	if resp.status_code < 200 or resp.status_code>299:
-		print("Error in Request")
+		print("Error in Request : "+resp.url)
 		quit()
 	all_attempted_problems = resp.json()['result']
 	solved_problems = []
@@ -72,10 +72,9 @@ def getRandomProblem(user_handle):
 		if "rating" in problem['problem'] and problem['verdict'] == "OK":
 			solved_problems.append({"contestId":problem['problem']['contestId'],"index":problem['problem']['index'],"rating":problem['problem']['rating']})
 
-
 	resp = requests.get("https://codeforces.com/api/problemset.problems");
 	if resp.status_code < 200 or resp.status_code>299:
-		print("Error in Request")
+		print("Error in Request : "+resp.url)
 		quit()
 	all_problems = resp.json()['result']['problems']
 	all_problems_wr = []
@@ -94,6 +93,7 @@ def getRandomProblem(user_handle):
 	rating_average = calRatingAvg(solved_problems)
 
 	cf_url = getProblemURL(rating_average,unsolved_problems)
-	print(rating_average)
-	print(cf_url)
+
+	print("Average Rating : " + str(rating_average))
+	print("Opening : " + cf_url)
 	return cf_url

@@ -1,5 +1,7 @@
 from argparse import ArgumentParser
 import cf_recommend
+import random
+import os
 def getInput():
 	#Define Input Here
 	parser = ArgumentParser()
@@ -12,9 +14,15 @@ def getInput():
 
 def main():
 	parameter = getInput()
+	# Append all available OJs
 	open_url = []
 	if parameter["codeforces"] != None:
-		open_url.append(cf_recommend.getRandomProblem(parameter["codeforces"]))
-
+		open_url.append("codeforces")
+	
+	random_oj = random.choice(open_url)
+	url = ""
+	if random_oj == "codeforces":
+		url = cf_recommend.getRandomProblem(parameter["codeforces"])
+	os.system("xdg-open "+url)
 if __name__ == "__main__":
 	main()

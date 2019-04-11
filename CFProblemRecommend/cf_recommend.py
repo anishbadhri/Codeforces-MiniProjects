@@ -35,7 +35,10 @@ def calRatingAvg(solved_problems):
 	while it<lim:
 		rating_average += solved_problems[it]['rating']
 		it = it + 1
-	rating_average/=it
+	if it==0:
+		rating_average = 0
+	else:
+		rating_average/=it
 	if rating_average==0:
 		rating_average = 1000
 	return rating_average
@@ -74,7 +77,7 @@ def removeSolved(solved_problems,all_problems_wr):
 	unsolved_problems = []
 	i = 0
 	for problem in all_problems_wr:
-		if problem != solved_problems[i]:
+		if i==len(solved_problems) or problem != solved_problems[i]:
 			unsolved_problems.append(problem)
 		else:
 			i += 1
